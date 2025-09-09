@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-primaria: #f4f7f6; /* Cinza claro, quase branco */
+    --cor-secundaria: #e0e6eb; /* Azul acinzentado claro */
+    --cor-destaque: #6c5ce7; /* Roxo suave para destaque */
+    --cor-destaque-hover: #5a4bcf; /* Roxo mais escuro para hover */
+    --cor-texto-principal: #3a3f44; /* Cinza escuro para legibilidade */
+    --cor-sombra-clara: rgba(0, 0, 0, 0.08);
+    --cor-sombra-escura: rgba(0, 0, 0, 0.15);
+    --transicao-suave: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%); /* Gradiente suave no fundo */
+    min-height: 100vh; /* Usar min-height para garantir que o body ocupe pelo menos a altura da viewport */
+    color: var(--cor-texto-principal);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+    padding: 3rem; /* Mais padding para um respiro maior */
+    background-color: #ffffff; /* Fundo branco para o container */
+    border-radius: 1.5rem; /* Bordas mais arredondadas */
+    box-shadow: 0 15px 40px var(--cor-sombra-escura); /* Sombra mais pronunciada */
+    transition: var(--transicao-suave);
+}
+
+.container:hover {
+    box-shadow: 0 20px 50px var(--cor-sombra-escura); /* Efeito de elevação no hover do container */
+}
+
+h1 {
+    color: var(--cor-texto-principal);
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 3.2rem); /* Tamanho de fonte maior e mais responsivo */
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Ajuste de espaçamento entre letras */
+    margin-bottom: 1rem;
+}
+
+#entrada-de-texto {
+    width: 100%;
+    min-height: 15rem; /* Altura mínima para garantir espaço */
+    padding: 1.8rem;
+    border-radius: 1.2rem;
+    border: 2px solid var(--cor-secundaria);
+    background-color: #fff;
+    font-size: 1.6rem; /* Tamanho de fonte ligeiramente maior */
+    color: var(--cor-texto-principal);
+    transition: var(--transicao-suave);
+    resize: vertical; /* Permite redimensionar a altura */
+    outline: none; /* Remove outline padrão */
+}
+
+#entrada-de-texto:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3); /* Efeito de glow no foco */
+}
+
+#entrada-de-texto::placeholder {
+    color: #a0a4a8;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+#botao-palavrachave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.2rem 2.5rem; /* Padding ajustado */
+    border-radius: 1rem;
+    border: none;
+    background: linear-gradient(110deg, var(--cor-destaque) 0%, var(--cor-destaque-hover) 100%); /* Gradiente no botão */
+    color: #fff;
+    font-size: 1.9rem; /* Tamanho de fonte maior para o botão */
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao-suave), transform 0.2s ease-out;
+    text-transform: uppercase; /* Título do botão em maiúsculas para destaque */
+    letter-spacing: 0.5px;
+}
+
+#botao-palavrachave:hover {
+    background: linear-gradient(110deg, var(--cor-destaque-hover) 0%, var(--cor-destaque) 100%); /* Gradiente invertido no hover */
+    transform: translateY(-4px) scale(1.02); /* Efeito de elevação e leve escala */
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4); /* Sombra mais intensa no hover */
+}
+
+#botao-palavrachave:active {
+    transform: translateY(-2px) scale(1); /* Efeito de "apertar" o botão */
+    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+}
+
+#resultado-palavrachave {
+    width: 100%;
+    padding: 1.8rem;
+    border-radius: 1.2rem;
+    background-color: var(--cor-primaria); /* Fundo levemente diferente para destacar */
+    color: var(--cor-texto-principal);
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 1rem;
+    min-height: 10rem; /* Altura mínima para resultados */
+    max-height: 40vh;
+    overflow: auto;
+    border: 1px solid var(--cor-secundaria);
+    box-shadow: inset 0 4px 15px var(--cor-sombra-clara); /* Sombra interna sutil para profundidade */
+    transition: var(--transicao-suave);
+}
+
+/* Estilo para abas (exemplo) */
+.abas-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.aba-botao {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: var(--cor-secundaria);
+    color: var(--cor-texto-principal);
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: var(--transicao-suave);
+    box-shadow: 0 2px 5px var(--cor-sombra-clara);
+}
+
+.aba-botao.ativa {
+    background: var(--cor-destaque);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.4);
+}
+
+.aba-botao:not(.ativa):hover {
+    background: #d0d6db; /* Cor levemente mais escura no hover */
+    transform: translateY(-2px);
+}
+
+/* Estilo para cards de resultado (se houver) */
+.card-resultado {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px var(--cor-sombra-clara);
+    border-left: 5px solid var(--cor-destaque); /* Destaque lateral */
+    text-align: left;
+    transition: var(--transicao-suave);
+}
+
+.card-resultado:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px var(--cor-sombra-escura);
+}
